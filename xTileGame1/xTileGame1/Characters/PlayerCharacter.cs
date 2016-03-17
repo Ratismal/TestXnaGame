@@ -8,6 +8,7 @@ using xTile.Dimensions;
 using xTile.Layers;
 using xTile.Tiles;
 using xTileGame1.Ref;
+using xTileGame1.Resources;
 using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace xTileGame1.Characters
@@ -18,7 +19,7 @@ namespace xTileGame1.Characters
         private Rectangle oldViewport;
 
         public PlayerCharacter()
-            : base(RefNames.Sprites.PLAYER)
+            : base(Resources.Resources.spritePlayerCharacter)
         {
         }
 
@@ -45,7 +46,6 @@ namespace xTileGame1.Characters
 
             var ms = Mouse.GetState();
             var ks = Keyboard.GetState();
-            var please = "work";
            // Point newPos = new Point(viewport.X, viewport.Y);
 
             // Get the keys that are down
@@ -95,16 +95,16 @@ namespace xTileGame1.Characters
             //newPosition = new Vector2(sprite.Position.X, sprite.Position.Y);
 
             // Check if we're moving the sprite or the viewport on the X axis
-            if (oldPosition.X != Game1.graphics.PreferredBackBufferWidth/2)
+            if (oldPosition.X != Game1.Graphics.PreferredBackBufferWidth/2)
             {
                 // The player is on the left edge
-                if (oldPosition.X < Game1.graphics.PreferredBackBufferWidth/2)
+                if (oldPosition.X < Game1.Graphics.PreferredBackBufferWidth/2)
                 {
                     if (rightkey)
                     {
                         newPosition.X += speed;
                     }
-                    newPosition.X = Math.Min(newPosition.X, Game1.graphics.PreferredBackBufferWidth/2);
+                    newPosition.X = Math.Min(newPosition.X, Game1.Graphics.PreferredBackBufferWidth/2);
                 }
                 // The player is on the right edge
                 else
@@ -113,7 +113,7 @@ namespace xTileGame1.Characters
                     {
                         newPosition.X -= speed;
                     }
-                    newPosition.X = Math.Min(newPosition.X, Game1.graphics.PreferredBackBufferWidth);
+                    newPosition.X = Math.Min(newPosition.X, Game1.Graphics.PreferredBackBufferWidth);
                 }
                 
                 if (CheckCollisions(map, viewport))
@@ -141,16 +141,16 @@ namespace xTileGame1.Characters
             }
 
             // Check if we're moving the sprite or the viewport on the Y axis
-            if (oldPosition.Y != Game1.graphics.PreferredBackBufferHeight/2)
+            if (oldPosition.Y != Game1.Graphics.PreferredBackBufferHeight/2)
             {
                 // The player is on the top edge
-                if (oldPosition.Y < Game1.graphics.PreferredBackBufferHeight/2)
+                if (oldPosition.Y < Game1.Graphics.PreferredBackBufferHeight/2)
                 {
                     if (downkey)
                     {
                         newPosition.Y += speed;
                     }
-                    newPosition.Y = Math.Min(newPosition.Y, Game1.graphics.PreferredBackBufferHeight/2);
+                    newPosition.Y = Math.Min(newPosition.Y, Game1.Graphics.PreferredBackBufferHeight/2);
                 }
                 // The player is on the bottom edge
                 else
@@ -159,7 +159,7 @@ namespace xTileGame1.Characters
                     {
                         newPosition.Y -= speed;
                     }
-                    newPosition.Y = Math.Min(newPosition.Y, Game1.graphics.PreferredBackBufferHeight);
+                    newPosition.Y = Math.Min(newPosition.Y, Game1.Graphics.PreferredBackBufferHeight);
                 }
 
                 if (CheckCollisions(map, viewport))
@@ -202,9 +202,9 @@ namespace xTileGame1.Characters
             // Make sure that the sprite isn't off the screen
             float tempX, tempY;
             tempX = Math.Max(0, sprite.Position.X);
-            tempX = Math.Min(tempX, Game1.graphics.PreferredBackBufferWidth - sprite.Sprite.Width);
+            tempX = Math.Min(tempX, Game1.Graphics.PreferredBackBufferWidth - sprite.Sprite.Width);
             tempY = Math.Max(0, sprite.Position.Y);
-            tempY = Math.Min(tempY, Game1.graphics.PreferredBackBufferHeight - sprite.Sprite.Height);
+            tempY = Math.Min(tempY, Game1.Graphics.PreferredBackBufferHeight - sprite.Sprite.Height);
             SetPos(tempX, tempY);
 
             // Check if the viewport is on the min or max

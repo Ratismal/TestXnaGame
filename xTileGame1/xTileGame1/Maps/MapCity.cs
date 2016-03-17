@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using xTile;
 using xTileGame1.Ref;
+using xTileGame1.Resources;
 
 namespace xTileGame1.Maps
 {
@@ -11,7 +12,7 @@ namespace xTileGame1.Maps
     {
 
         public MapCity()
-            : base(RefNames.Maps.MAGE_CITY)
+            : base(Resources.Resources.mapMageCity)
         {
 
         }

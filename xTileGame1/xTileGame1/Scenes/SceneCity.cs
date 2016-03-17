@@ -8,6 +8,7 @@ using xTile.Dimensions;
 using xTile.Display;
 using xTileGame1.Characters;
 using xTileGame1.Maps;
+using xTileGame1.Resources;
 using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace xTileGame1.Scene
@@ -48,7 +49,7 @@ namespace xTileGame1.Scene
         {
             spriteBatch = new SpriteBatch(graphicsDevice);
 
-            map = InitMaps.mapMageCity.map;
+            map = Resources.Resources.mapMageCity;
             map.LoadTileSheets(mapDisplayDevice);
 
             playerCharacter = Characters.Characters.playerCharacter;

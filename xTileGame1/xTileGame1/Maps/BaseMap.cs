@@ -14,9 +14,9 @@ namespace xTileGame1.Maps
             get;
         }
 
-        public BaseMap(string mapName)
+        public BaseMap(Map map)
         {
-            map = RefNames.content.Load<Map>(mapName);
+            this.map = map;
         }
 
 

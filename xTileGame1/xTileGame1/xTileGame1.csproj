@@ -60,9 +60,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buttons\Button.cs" />
     <Compile Include="Characters\BaseCharacter.cs" />
     <Compile Include="Characters\Characters.cs" />
     <Compile Include="Characters\PlayerCharacter.cs" />
+    <Compile Include="Lib\MenuHelper.cs" />
+    <Compile Include="Menus\IMenu.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
+    <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Resources\Resources.cs" />
     <Compile Include="Sprites\AnimatedSprite.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Sprites\FrameAnimation.cs" />

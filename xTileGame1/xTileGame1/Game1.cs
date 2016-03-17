@@ -1,14 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using xTile;
-using xTile.Dimensions;
-using xTile.Display;
 using xTileGame1.Maps;
+using xTileGame1.Menus;
 using xTileGame1.Ref;
 using xTileGame1.Scene;
-using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace xTileGame1
 {
@@ -17,20 +12,38 @@ namespace xTileGame1
     /// </summary>
     public class Game1 : Game
     {
-        public static GraphicsDeviceManager graphics;
+        public enum GameMode
+        {
+            MainMenu,
+            LoadSave,
+            MainGame
+        }
+
+        public static GraphicsDeviceManager Graphics;
+
+        private static GameMode _gameMode = GameMode.MainMenu;
+
+        private MainMenu _mainMenu;
+
+        private SceneCity _scene;
 
 
-        private SpriteBatch spriteBatch;
-        public Movement verticalMovement;
-        public Movement horizontalMovement;
-        private KeyboardState oldState;
-
-        private SceneCity scene;
+        private SpriteBatch _spriteBatch;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+        }
+
+        public static GameMode GetGameMode()
+        {
+            return _gameMode;
+        }
+
+        public static void SetGameMode(GameMode mode)
+        {
+            _gameMode = mode;
         }
 
         /// <summary>
@@ -42,15 +55,17 @@ namespace xTileGame1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            GraphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
             RefNames.content = Content;
             InitMaps.init();
             Characters.Characters.init();
-            scene = new SceneCity(graphics, GraphicsDevice, Content, this);
-            scene.Initialize();
+            _scene = new SceneCity(Graphics, GraphicsDevice, Content, this);
+            _scene.Initialize();
+            _mainMenu = new MainMenu();
+            _mainMenu.Initialize();
+            Resources.Resources.init();
 
             base.Initialize();
-
-            
         }
 
         /// <summary>
@@ -60,10 +75,9 @@ namespace xTileGame1
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            scene.LoadContent();
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _scene.LoadContent();
             // TODO: use this.Content to load your game content here
-
         }
 
         /// <summary>
@@ -73,7 +87,7 @@ namespace xTileGame1
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-            scene.UnloadContent();
+            _scene.UnloadContent();
         }
 
 
@@ -84,55 +98,24 @@ namespace xTileGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                Exit();
-
-            GetInput();
-            //System.Console.WriteLine(verticalMovement + " " + horizontalMovement);
+            switch (_gameMode)
+            {
+                case GameMode.MainMenu:
+                    _mainMenu.Update(gameTime);
+                    break;
+                case GameMode.LoadSave:
+                    break;
+                case GameMode.MainGame:
+                    _scene.Update(gameTime);
+                    break;
+                default:
+                    _mainMenu.Update(gameTime);
+                    break;
+            }
             // TODO: Add your update logic here
-            scene.Update(gameTime);
 
-           // map.GetLayer.
 
             base.Update(gameTime);
-        }
-
-        public void GetInput()
-        {
-            KeyboardState newState = Keyboard.GetState();
-
-            //Vertical Movement
-            if (newState.IsKeyDown(Keys.W) && newState.IsKeyDown(Keys.S))
-                verticalMovement = Movement.NEUTRAL;
-            else if (newState.IsKeyDown(Keys.W))
-                verticalMovement = Movement.POSITIVE;
-            else if (newState.IsKeyDown(Keys.S))
-                verticalMovement = Movement.NEGATIVE;
-            else
-                verticalMovement = Movement.NEUTRAL;
-
-            if (newState.IsKeyDown(Keys.A) && newState.IsKeyDown(Keys.D))
-                horizontalMovement = Movement.NEUTRAL;
-            else if (newState.IsKeyDown(Keys.A))
-                horizontalMovement = Movement.NEGATIVE;
-            else if (newState.IsKeyDown(Keys.D))
-                horizontalMovement = Movement.POSITIVE;
-            else
-                horizontalMovement = Movement.NEUTRAL;
-
-
-            oldState = newState;
-
-
-        }
-
-
-        public enum Movement
-        {
-            POSITIVE,
-            NEGATIVE,
-            NEUTRAL
         }
 
         /// <summary>
@@ -141,10 +124,20 @@ namespace xTileGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            scene.Draw(gameTime);
+            switch (_gameMode)
+            {
+                case GameMode.MainMenu:
+                    _mainMenu.Draw(_spriteBatch);
+                    break;
+                case GameMode.LoadSave:
+                    break;
+                case GameMode.MainGame:
+                    _scene.Draw(gameTime);
+                    break;
+            }
 
             base.Draw(gameTime);
         }

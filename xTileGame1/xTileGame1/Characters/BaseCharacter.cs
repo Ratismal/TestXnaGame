@@ -17,9 +17,9 @@ namespace xTileGame1.Characters
         public MobileSprite sprite;
         private Texture2D texture;
 
-        public BaseCharacter(string textureName)
+        public BaseCharacter(Texture2D texture)
         {
-            texture = RefNames.content.Load<Texture2D>(textureName);
+            this.texture = texture;
         }
 
         public void init()

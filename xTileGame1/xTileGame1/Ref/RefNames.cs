@@ -26,5 +26,16 @@ namespace xTileGame1.Ref
             public static readonly string PREFIX = "Sprites/";
             public static readonly string PLAYER = PREFIX + "player";
         }
+
+        public static class Textures
+        {
+            public static readonly string PREFIX = "Textures/";
+            public static readonly string LOGO_BANNER = PREFIX + "logoBanner";
+            public static readonly string MAIN_MENU_BACKGROUND = PREFIX + "mainMenuBackground";
+            public static readonly string MAIN_MENU_BUTTON = PREFIX + "mainMenuButton";
+            public static readonly string MAIN_MENU_BUTTON_LONG = PREFIX + "mainMenuButtonLong";
+
+
+        }
     }
 }
