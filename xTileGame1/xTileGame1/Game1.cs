@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using xTileGame1.Maps;
 using xTileGame1.Menus;
 using xTileGame1.Ref;
+using xTileGame1.Resources;
 using xTileGame1.Scene;
 
 namespace xTileGame1
@@ -22,6 +23,8 @@ namespace xTileGame1
         public static GraphicsDeviceManager Graphics;
 
         private static GameMode _gameMode = GameMode.MainMenu;
+
+        public static bool DoExit;
 
         private MainMenu _mainMenu;
 
@@ -56,6 +59,8 @@ namespace xTileGame1
         {
             // TODO: Add your initialization logic here
             GraphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
+            Resource.Init(Content);
+
             RefNames.content = Content;
             InitMaps.init();
             Characters.Characters.init();
@@ -63,7 +68,6 @@ namespace xTileGame1
             _scene.Initialize();
             _mainMenu = new MainMenu();
             _mainMenu.Initialize();
-            Resources.Resources.init();
 
             base.Initialize();
         }
@@ -116,6 +120,8 @@ namespace xTileGame1
 
 
             base.Update(gameTime);
+            CheckExit();
+
         }
 
         /// <summary>
@@ -125,7 +131,7 @@ namespace xTileGame1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             // TODO: Add your drawing code here
             switch (_gameMode)
             {
@@ -138,8 +144,15 @@ namespace xTileGame1
                     _scene.Draw(gameTime);
                     break;
             }
+            _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void CheckExit()
+        {
+            if (DoExit)
+                Exit();
         }
     }
 }

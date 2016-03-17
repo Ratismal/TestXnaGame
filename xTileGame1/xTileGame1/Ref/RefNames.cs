@@ -34,8 +34,12 @@ namespace xTileGame1.Ref
             public static readonly string MAIN_MENU_BACKGROUND = PREFIX + "mainMenuBackground";
             public static readonly string MAIN_MENU_BUTTON = PREFIX + "mainMenuButton";
             public static readonly string MAIN_MENU_BUTTON_LONG = PREFIX + "mainMenuButtonLong";
+        }
 
-
+        public static class Fonts
+        {
+            public static readonly string PREFIX = "Fonts/";
+            public static readonly string ARIAL = PREFIX + "arial";
         }
     }
 }

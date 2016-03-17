@@ -33,6 +33,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fonts\arial.spritefont">
+      <Name>arial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="TileSheets\mageCity.png">
       <Name>mageCity</Name>
       <Importer>TextureImporter</Importer>

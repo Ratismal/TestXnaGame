@@ -19,7 +19,7 @@ namespace xTileGame1.Characters
         private Rectangle oldViewport;
 
         public PlayerCharacter()
-            : base(Resources.Resources.spritePlayerCharacter)
+            : base(Resources.Resource.SpritePlayerCharacter)
         {
         }
 
@@ -27,6 +27,7 @@ namespace xTileGame1.Characters
         {
             base.init();
             sprite.Sprite.AddAnimation("neutral", 0, 0, 32, 32, 13, 0.2f);
+            sprite.Sprite.CurrentAnimation = "neutral";
             sprite.Speed = 4;
             sprite.IsMoving = false;
         }

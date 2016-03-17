@@ -12,7 +12,7 @@ namespace xTileGame1.Maps
     {
 
         public MapCity()
-            : base(Resources.Resources.mapMageCity)
+            : base(Resources.Resource.MapMageCity)
         {
 
         }

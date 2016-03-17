@@ -10,6 +10,7 @@ namespace xTileGame1.Buttons
     class Button
     {
         public int Id, XCoord, YCoord, Width, Height;
+        public bool Hover = false;
         
         public Button(int id, int xCoord, int yCoord, int width, int height)
         {
@@ -20,14 +21,17 @@ namespace xTileGame1.Buttons
             Height = height;
         }
 
-        public void Draw(SpriteBatch b)
+        public virtual void Draw(SpriteBatch b)
+        {
+         //   System.Console.WriteLine("Doing a button thing! ");
+
+            // NO-OP
+        }
+
+        public virtual void OnClick(MouseState ms)
         {
             // NO-OP
         }
 
-        public void OnClick(MouseState ms)
-        {
-            
-        }
     }
 }

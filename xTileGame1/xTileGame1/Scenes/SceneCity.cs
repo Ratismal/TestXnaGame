@@ -49,7 +49,7 @@ namespace xTileGame1.Scene
         {
             spriteBatch = new SpriteBatch(graphicsDevice);
 
-            map = Resources.Resources.mapMageCity;
+            map = Resources.Resource.MapMageCity;
             map.LoadTileSheets(mapDisplayDevice);
 
             playerCharacter = Characters.Characters.playerCharacter;

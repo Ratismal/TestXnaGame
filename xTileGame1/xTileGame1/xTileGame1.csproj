@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buttons\Button.cs" />
+    <Compile Include="Buttons\ButtonLabel.cs" />
     <Compile Include="Characters\BaseCharacter.cs" />
     <Compile Include="Characters\Characters.cs" />
     <Compile Include="Characters\PlayerCharacter.cs" />
@@ -68,9 +69,8 @@
     <Compile Include="Menus\IMenu.cs" />
     <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\Menu.cs" />
-    <Compile Include="Resources\Resources.cs" />
+    <Compile Include="Resources\Resource.cs" />
     <Compile Include="Sprites\AnimatedSprite.cs" />
-    <Compile Include="Entities\Player.cs" />
     <Compile Include="Sprites\FrameAnimation.cs" />
     <Compile Include="Maps\InitMaps.cs" />
     <Compile Include="Maps\BaseMap.cs" />
@@ -100,9 +100,7 @@
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameStates\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
