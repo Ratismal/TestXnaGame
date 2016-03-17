@@ -45,7 +45,7 @@ namespace xTileGame1.Characters
 
             var ms = Mouse.GetState();
             var ks = Keyboard.GetState();
-
+            var please = "work";
            // Point newPos = new Point(viewport.X, viewport.Y);
 
             // Get the keys that are down
