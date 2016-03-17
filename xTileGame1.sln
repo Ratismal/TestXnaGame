@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xTileGame1", "xTileGame1\xTileGame1\xTileGame1.csproj", "{42E3AF0E-9EA8-41F4-8DC0-618C15B576AD}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "xTileGame1Content", "xTileGame1\xTileGame1Content\xTileGame1Content.contentproj", "{31A72D9C-9538-4244-80B6-BDA22ADD7AD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xTile", "xTile", "{3E089D65-0898-4287-A395-84EA325D43F5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\AppData\Local\Temp\7zE38AA.tmp\xTile.dll = ..\..\..\..\AppData\Local\Temp\7zE38AA.tmp\xTile.dll
+		..\..\..\..\AppData\Local\Temp\7zE1D13.tmp\xTile.Pipeline.dll = ..\..\..\..\AppData\Local\Temp\7zE1D13.tmp\xTile.Pipeline.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42E3AF0E-9EA8-41F4-8DC0-618C15B576AD}.Debug|x86.ActiveCfg = Debug|x86
+		{42E3AF0E-9EA8-41F4-8DC0-618C15B576AD}.Debug|x86.Build.0 = Debug|x86
+		{42E3AF0E-9EA8-41F4-8DC0-618C15B576AD}.Release|x86.ActiveCfg = Release|x86
+		{42E3AF0E-9EA8-41F4-8DC0-618C15B576AD}.Release|x86.Build.0 = Release|x86
+		{31A72D9C-9538-4244-80B6-BDA22ADD7AD0}.Debug|x86.ActiveCfg = Debug|x86
+		{31A72D9C-9538-4244-80B6-BDA22ADD7AD0}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
