@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace xTileGame1.Menus
+namespace TestGame.Menus
 {
     public abstract class IMenu
     {

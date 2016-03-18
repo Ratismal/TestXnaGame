@@ -5,10 +5,10 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using xTileGame1.Buttons;
-using xTileGame1.Lib;
+using TestGame.Buttons;
+using TestGame.Lib;
 
-namespace xTileGame1.Menus
+namespace TestGame.Menus
 {
     class Menu
     {

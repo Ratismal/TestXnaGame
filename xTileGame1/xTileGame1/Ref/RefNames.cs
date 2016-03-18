@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
 
-namespace xTileGame1.Ref
+namespace TestGame.Ref
 {
     public static class RefNames
     {
         public static ContentManager content;
+
+        public static readonly string APP_DIRECTORY =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Game1.GameName);
+
         public static class Maps
         {
             public static readonly string PREFIX = "Maps/";

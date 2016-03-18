@@ -1,24 +1,31 @@
+using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using xTileGame1.Maps;
-using xTileGame1.Menus;
-using xTileGame1.Ref;
-using xTileGame1.Resources;
-using xTileGame1.Scene;
+using TestGame.Input;
+using TestGame.Maps;
+using TestGame.Menus;
+using TestGame.Ref;
+using TestGame.Resources;
+using TestGame.Scene;
 
-namespace xTileGame1
+namespace TestGame
 {
     /// <summary>
     ///     This is the main type for your game
     /// </summary>
     public class Game1 : Game
     {
+
+
         public enum GameMode
         {
             MainMenu,
             LoadSave,
             MainGame
         }
+
+        public static readonly string GameName = "TestGame";
 
         public static GraphicsDeviceManager Graphics;
 
@@ -62,6 +69,18 @@ namespace xTileGame1
             Resource.Init(Content);
 
             RefNames.content = Content;
+
+            Console.Out.WriteLine("Checking app directory");
+            FileInfo appDirectory = new FileInfo(Path.Combine(RefNames.APP_DIRECTORY, "dummy"));
+            if (!appDirectory.Directory.Exists)
+            {
+                Console.Out.WriteLine("Creating app directory");
+                appDirectory.Directory.Create();
+            }
+
+            Config.Initialize();
+            InputHandler.Initialize();
+
             InitMaps.init();
             Characters.Characters.init();
             _scene = new SceneCity(Graphics, GraphicsDevice, Content, this);
@@ -102,6 +121,7 @@ namespace xTileGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            InputHandler.Update();
             switch (_gameMode)
             {
                 case GameMode.MainMenu:

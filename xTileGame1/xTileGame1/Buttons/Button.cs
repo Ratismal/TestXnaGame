@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace xTileGame1.Buttons
+namespace TestGame.Buttons
 {
     class Button
     {

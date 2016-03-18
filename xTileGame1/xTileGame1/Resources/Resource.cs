@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using TestGame.Ref;
 using xTile;
-using xTileGame1.Menus;
-using xTileGame1.Ref;
+using TestGame.Menus;
 
-namespace xTileGame1.Resources
+namespace TestGame.Resources
 {
     class Resource
     {

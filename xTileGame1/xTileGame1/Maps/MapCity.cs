@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using xTile;
-using xTileGame1.Ref;
-using xTileGame1.Resources;
+using TestGame.Ref;
+using TestGame.Resources;
 
-namespace xTileGame1.Maps
+namespace TestGame.Maps
 {
     class MapCity : BaseMap
     {

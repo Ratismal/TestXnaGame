@@ -1,6 +1,6 @@
 using System;
 
-namespace xTileGame1
+namespace TestGame
 {
 #if WINDOWS || XBOX
     static class Program

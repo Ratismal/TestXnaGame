@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace xTileGame1.Characters
+namespace TestGame.Characters
 {
     class Characters
     {
         public static PlayerCharacter playerCharacter;
 
+        /// <summary>
+        /// Initialize all the characters
+        /// </summary>
         public static void init()
         {
             playerCharacter = new PlayerCharacter();
-            playerCharacter.init();
+            playerCharacter.Initialize();
         }
     }
 }

@@ -5,14 +5,14 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TestGame.Buttons;
+using TestGame.Lib;
+using TestGame.Resources;
 using xTile.Dimensions;
-using xTileGame1.Buttons;
-using xTileGame1.Lib;
-using xTileGame1.Resources;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 
-namespace xTileGame1.Menus
+namespace TestGame.Menus
 {
     class MainMenu : Menu
     {

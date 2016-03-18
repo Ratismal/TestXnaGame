@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace xTileGame1.Scene
+namespace xTileGame1.Buttons
 {
-    class TestScene
+    class ButtonTexture
     {
     }
 }

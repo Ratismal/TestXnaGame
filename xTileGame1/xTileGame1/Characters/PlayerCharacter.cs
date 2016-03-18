@@ -7,47 +7,63 @@ using xTile;
 using xTile.Dimensions;
 using xTile.Layers;
 using xTile.Tiles;
-using xTileGame1.Ref;
-using xTileGame1.Resources;
+using TestGame.Ref;
+using TestGame.Resources;
 using Rectangle = xTile.Dimensions.Rectangle;
 
-namespace xTileGame1.Characters
+namespace TestGame.Characters
 {
     internal class PlayerCharacter : BaseCharacter
     {
         // Just in case we need to revert it
-        private Rectangle oldViewport;
+        private Rectangle _oldViewport;
 
         public PlayerCharacter()
             : base(Resources.Resource.SpritePlayerCharacter)
         {
         }
 
-        public void init()
+        public override void Initialize()
         {
-            base.init();
+            base.Initialize();
             sprite.Sprite.AddAnimation("neutral", 0, 0, 32, 32, 13, 0.2f);
             sprite.Sprite.CurrentAnimation = "neutral";
             sprite.Speed = 4;
             sprite.IsMoving = false;
         }
 
-        public Rectangle Update2(GameTime gameTime, Map map, Rectangle viewport)
+        /// <summary>
+        /// Update the character (second attempt)
+        /// </summary>
+        /// <param name="gameTime">GameTime</param>
+        /// <param name="map">Map the character is on</param>
+        /// <param name="viewport">Viewport the character is on</param>
+        /// <returns>The modified viewport</returns>
+        public override Rectangle Update(GameTime gameTime, Map map, Rectangle viewport)
         {
 
+
+
+            base.Update(gameTime, map, viewport);
             return viewport;
         }
 
-        public Rectangle Update(GameTime gameTime, Map map, Rectangle viewport)
+        /// <summary>
+        /// Update the player
+        /// </summary>
+        /// <param name="gameTime">GameTime</param>
+        /// <param name="map">Map the character is on</param>
+        /// <param name="viewport">Viewport the character is on</param>
+        /// <returns>The modified viewport</returns>
+        public  Rectangle Update2(GameTime gameTime, Map map, Rectangle viewport)
         {
             oldPosition = new Vector2(sprite.Position.X, sprite.Position.Y);
-            oldViewport = viewport;
+            _oldViewport = viewport;
             bool collided;
             Vector2 newPosition = new Vector2(sprite.Position.X, sprite.Position.Y);
 
             var ms = Mouse.GetState();
             var ks = Keyboard.GetState();
-           // Point newPos = new Point(viewport.X, viewport.Y);
 
             // Get the keys that are down
             var leftkey = ks.IsKeyDown(Keys.A);
@@ -137,7 +153,7 @@ namespace xTileGame1.Characters
 
                 if (CheckCollisions(map, viewport))
                 {
-                    viewport.X = oldViewport.X;
+                    viewport.X = _oldViewport.X;
                 }
             }
 
@@ -183,7 +199,7 @@ namespace xTileGame1.Characters
 
                 if (CheckCollisions(map, viewport))
                 {
-                    viewport.Y = oldViewport.Y;
+                    viewport.Y = _oldViewport.Y;
                 }
             }
 
@@ -228,10 +244,11 @@ namespace xTileGame1.Characters
         }
 
         /// <summary>
-        ///     Checks if the player collided with anything
+        /// Checks if the character has collided with anything
         /// </summary>
-        /// <param name="viewport">The viewport of the scene</param>
-        /// <returns>Whether or not there was a collision</returns>
+        /// <param name="map">The map the character is on</param>
+        /// <param name="viewport">The viewport the character is on</param>
+        /// <returns>False if no collision</returns>
         public bool CheckCollisions(Map map, Rectangle viewport)
         {
             Layer layer = map.GetLayer("Paths");
@@ -240,6 +257,7 @@ namespace xTileGame1.Characters
             Vector2 location = GetMapLocation(viewport);
 
             int right = (int) (sprite.CollisionBox.Right + viewport.X) / 32;
+            Console.Out.WriteLine(right);
             int left = (int) (sprite.CollisionBox.Left + viewport.X) / 32;
             int top = (int) (sprite.CollisionBox.Top + viewport.Y) / 32;
             int bottom = (int) (sprite.CollisionBox.Bottom + viewport.Y) / 32;
@@ -267,6 +285,11 @@ namespace xTileGame1.Characters
             return false;
         }
 
+        /// <summary>
+        /// Get's the player's location on the map
+        /// </summary>
+        /// <param name="viewport">The viewport the player is on</param>
+        /// <returns>Coordinates</returns>
         public Vector2 GetMapLocation(Rectangle viewport)
         {
             //sprite.CollisionBox.
@@ -278,6 +301,10 @@ namespace xTileGame1.Characters
             return new Vector2( x + (sprite.Sprite.Width/2), y - (sprite.Sprite.Height/2));
         }
 
+        /// <summary>
+        /// Draw the player
+        /// </summary>
+        /// <param name="spriteBatch">Spritebatch to draw on</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);

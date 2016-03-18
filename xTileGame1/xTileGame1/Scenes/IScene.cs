@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace xTileGame1.Scene
+namespace TestGame.Scene
 {
     interface IScene
     {

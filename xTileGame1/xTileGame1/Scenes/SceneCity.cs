@@ -3,15 +3,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TestGame.Characters;
 using xTile;
 using xTile.Dimensions;
 using xTile.Display;
-using xTileGame1.Characters;
-using xTileGame1.Maps;
-using xTileGame1.Resources;
+using TestGame.Maps;
+using TestGame.Resources;
 using Rectangle = xTile.Dimensions.Rectangle;
 
-namespace xTileGame1.Scene
+namespace TestGame.Scene
 {
     internal class SceneCity : IScene
     {

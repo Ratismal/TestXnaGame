@@ -62,15 +62,21 @@
   <ItemGroup>
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="Buttons\ButtonLabel.cs" />
+    <Compile Include="Buttons\ButtonTexture.cs" />
     <Compile Include="Characters\BaseCharacter.cs" />
     <Compile Include="Characters\Characters.cs" />
     <Compile Include="Characters\PlayerCharacter.cs" />
+    <Compile Include="Configs\Config.cs" />
+    <Compile Include="Input\InputHandler.cs" />
     <Compile Include="Lib\MenuHelper.cs" />
+    <Compile Include="Locations\Location.cs" />
+    <Compile Include="Locations\LocationMageCity.cs" />
+    <Compile Include="Locations\RefLocations.cs" />
     <Compile Include="Menus\IMenu.cs" />
-    <Compile Include="Menus\MainMenu.cs" />
+    <Compile Include="Menus\MenuMain.cs" />
     <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Menus\MenuOption.cs" />
     <Compile Include="Resources\Resource.cs" />
-    <Compile Include="Sprites\AnimatedSprite.cs" />
     <Compile Include="Sprites\FrameAnimation.cs" />
     <Compile Include="Maps\InitMaps.cs" />
     <Compile Include="Maps\BaseMap.cs" />
@@ -80,13 +86,10 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Ref\RefNames.cs" />
     <Compile Include="Scenes\IScene.cs" />
-    <Compile Include="Scenes\Scene.cs" />
     <Compile Include="Scenes\SceneCity.cs" />
-    <Compile Include="Scenes\TestScene.cs" />
     <Compile Include="SpriteAnimation.cs" />
     <Compile Include="Sprites\BaseSprite.cs" />
     <Compile Include="Sprites\MobileSprite.cs" />
-    <Compile Include="Sprites\PlayerSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -95,9 +98,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\xTileGame1Content\xTileGame1Content.contentproj">
-      <Name>xTileGame1Content</Name>
+    <ProjectReference Include="..\xTileGame1Content\TestGameContent.contentproj">
+      <Name>TestGameContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{31A72D9C-9538-4244-80B6-BDA22ADD7AD0}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

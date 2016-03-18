@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace xTileGame1.Sprites
+namespace TestGame.Sprites
 {
     class MobileSprite
     {
